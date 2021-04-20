@@ -1,7 +1,7 @@
 package com.learn.redis;
 
 import java.time.Duration;
-
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,7 @@ import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-
+import redis.clients.jedis.JedisPoolConfig;
 @Component
 public class RedisConf {
 	@Bean
@@ -22,7 +22,10 @@ public class RedisConf {
 		  redisStandaloneConfiguration.setPassword(RedisPassword.of(password));
 		  JedisClientConfiguration.JedisClientConfigurationBuilder jedisClientConfiguration = JedisClientConfiguration.builder();
 		  jedisClientConfiguration.connectTimeout(Duration.ofMillis(20000));
-		  jedisClientConfiguration.usePooling();
+		 GenericObjectPoolConfig<JedisPoolConfig> jPoolConfig=new GenericObjectPoolConfig<JedisPoolConfig>();
+		  jPoolConfig.setMaxTotal(20);
+		  jPoolConfig.setMinIdle(10); 
+		  jedisClientConfiguration.usePooling().poolConfig(jPoolConfig); 
 		  return new JedisConnectionFactory(redisStandaloneConfiguration, jedisClientConfiguration.build());
 	}
 
