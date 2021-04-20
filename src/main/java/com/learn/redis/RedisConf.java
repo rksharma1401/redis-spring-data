@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RedisConf {
 	@Bean
-	JedisConnectionFactory jedisConnectionFactory(@Value("${redis.hostname}") String host,@Value("${redis.port}") Integer port,@Value("${redis.port}") String  password ) {
+	JedisConnectionFactory jedisConnectionFactory(@Value("${redis.hostname}") String host,@Value("${redis.port}") Integer port,@Value("${redis.password}") String  password ) {
 		 RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
 		  redisStandaloneConfiguration.setHostName(host);
 		  redisStandaloneConfiguration.setPort(port);
