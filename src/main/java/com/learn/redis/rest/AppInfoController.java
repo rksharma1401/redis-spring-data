@@ -24,7 +24,7 @@ public class AppInfoController {
 		return repo.findById(id);
 	}
 	
-	@PutMapping("/appinfo/")
+	@PutMapping("/appinfo")
 	public AppInfo  save(@RequestBody AppInfo appInfo) {
 		return repo.save(appInfo);
 	}
