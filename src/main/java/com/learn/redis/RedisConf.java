@@ -24,7 +24,7 @@ public class RedisConf {
 		  jedisClientConfiguration.connectTimeout(Duration.ofMillis(20000));
 		 GenericObjectPoolConfig<JedisPoolConfig> jPoolConfig=new GenericObjectPoolConfig<JedisPoolConfig>();
 		  jPoolConfig.setMaxTotal(2000);
-		  jPoolConfig.setMinIdle(10); 
+		  jPoolConfig.setMinIdle(20); 
 		  jedisClientConfiguration.usePooling().poolConfig(jPoolConfig); 
 		  return new JedisConnectionFactory(redisStandaloneConfiguration, jedisClientConfiguration.build());
 	}
