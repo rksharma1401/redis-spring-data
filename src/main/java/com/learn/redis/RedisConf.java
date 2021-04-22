@@ -27,8 +27,8 @@ public class RedisConf {
 		
 
 	    GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-	    poolConfig.setMaxIdle(50);
-	    poolConfig.setMinIdle(30);
+	    poolConfig.setMaxIdle(60);
+	    poolConfig.setMinIdle(50);
 	    poolConfig.setMaxWaitMillis(3000);
 	    poolConfig.setMaxTotal(200);
 
