@@ -27,10 +27,10 @@ public class RedisConf {
 		
 
 	    GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
-	    poolConfig.setMaxIdle(60);
-	    poolConfig.setMinIdle(50);
+	    poolConfig.setMaxIdle(15);
+	    poolConfig.setMinIdle(5);
 	    poolConfig.setMaxWaitMillis(3000);
-	    poolConfig.setMaxTotal(200);
+	    poolConfig.setMaxTotal(50);
 
 	    LettucePoolingClientConfiguration lettucePoolingClientConfiguration = LettucePoolingClientConfiguration.builder()
 	            .commandTimeout(Duration.ofSeconds(10))
