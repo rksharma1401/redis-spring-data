@@ -1,15 +1,13 @@
 {
-  "version": 1,
-  "variables": [{
-    "names": ["key",
-    "values": [
-     [1],
-     [2],
-     [3],
-     [4],
-     [5]
-
-     ]
-    ]}
-  ]
+	"version": 1,
+	"variables": [{
+		"names": ["key"],
+		"values": [
+			[1],
+			[2],
+			[3],
+			[4],
+			[5]
+		]
+	}]
 }
